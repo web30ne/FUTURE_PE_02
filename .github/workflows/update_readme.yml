@@ -1,5 +1,5 @@
 name: Auto-update README
-on: push
+on:
   schedule:
     - cron: '0 0 * * 0'  # Every Sunday at midnight UTC (weekly)
   workflow_dispatch:  # Allow manual trigger
