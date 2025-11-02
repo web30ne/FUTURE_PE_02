@@ -1,6 +1,14 @@
 # Welcome to my Future Intern Prompt Engineering Task
 
 <!-- AUTO-STATS-START -->
+
+## 📊 Project Statistics
+
+- **Custom Components**: 10 components
+- **UI Components**: 48 shadcn/ui components
+- **Pages**: 14 pages/routes
+- **Last Updated**: 2025-11-02 08:56:20 UTC
+
 <!-- AUTO-STATS-END -->
 
 ## Project info
@@ -8,6 +16,17 @@
 **URL**: https://lovable.dev/projects/012f042d-efc6-44fb-985b-5a16a6efa3a9
 
 <!-- AUTO-ACTIVITY-START -->
+
+## 📝 Recent Activity
+
+- Implement README update plan (5 seconds ago)
+- Create update_readme.yml (16 minutes ago)
+- Create .github/scripts/update_readme.sh (10 hours ago)
+- Create .github/workflows/update-repo.yml (11 hours ago)
+- Create .github/workflows/update-readme (11 hours ago)
+
+[View full commit history →](../../commits/main)
+
 <!-- AUTO-ACTIVITY-END -->
 
 ## How can I edit this code?
@@ -57,6 +76,16 @@ npm run dev
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
 <!-- AUTO-TECH-START -->
+
+## 🛠️ Technology Stack
+
+- **React**: 18.3.1
+- **TypeScript**: 5.8.3
+- **Vite**: 5.4.19
+- **Tailwind CSS**: 3.x
+- **shadcn/ui**: Component library
+- **Radix UI**: Accessible components
+
 <!-- AUTO-TECH-END -->
 
 ## What technologies are used for this project?
