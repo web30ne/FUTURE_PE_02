@@ -19,11 +19,13 @@
 
 ## 📝 Recent Activity
 
-- Implement README update plan (5 seconds ago)
-- Create update_readme.yml (16 minutes ago)
-- Create .github/scripts/update_readme.sh (10 hours ago)
-- Create .github/workflows/update-repo.yml (11 hours ago)
-- Create .github/workflows/update-readme (11 hours ago)
+- Implement README update plan 
+- Create update_readme.yml
+- Create .github/scripts/update_readme.sh 
+- Create .github/workflows/update-repo.yml
+- Create .github/workflows/update-readme 
+- Delete .github/workflows
+- Create .github/workflows/update_readme.yml
 
 [View full commit history →](../../commits/main)
 
