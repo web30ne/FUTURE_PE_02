@@ -1,0 +1,35 @@
+name: auto-update readme
+on:
+ schedule:
+ - cron: '0 *  * ' # top of every hour (UTC)
+ workflow_dispatch:
+permissions:
+ contents: write
+jobs:
+ update-readme:
+ runs-on: ubuntu-latest
+steps:
+  - name: Checkout repository
+    uses: actions/checkout@v4
+    with:
+      persist-credentials: true
+
+  - name: Ensure script is executable
+    run: chmod +x .github/scripts/update_readme.sh
+
+  - name: Run updater
+    run: .github/scripts/update_readme.sh
+
+  - name: Commit and push changes
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    run: |
+      git config --global user.name "github-actions[bot]"
+      git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      git add README.md
+      if git diff --staged --quiet; then
+        echo "No changes to commit"
+        exit 0
+      fi
+      git commit -m "Auto-update README [skip ci]"
+      git push
