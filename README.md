@@ -1,8 +1,14 @@
 # Welcome to my Future Intern Prompt Engineering Task
 
+<!-- AUTO-STATS-START -->
+<!-- AUTO-STATS-END -->
+
 ## Project info
 
 **URL**: https://lovable.dev/projects/012f042d-efc6-44fb-985b-5a16a6efa3a9
+
+<!-- AUTO-ACTIVITY-START -->
+<!-- AUTO-ACTIVITY-END -->
 
 ## How can I edit this code?
 
@@ -49,6 +55,9 @@ npm run dev
 - Select the "Codespaces" tab.
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
+
+<!-- AUTO-TECH-START -->
+<!-- AUTO-TECH-END -->
 
 ## What technologies are used for this project?
 
