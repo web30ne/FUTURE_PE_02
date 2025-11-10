@@ -32,15 +32,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run README generator
+      - name: Run README generator (do not push from inside script)
         id: generate
+        env:
+          SKIP_PUSH: 'true'   # instruct generator to skip any git push it might do itself
         run: |
-          # Run the project's README/markdown generation script.
-          # If the generator exits non-zero we will continue; the later steps will only commit if files changed.
-          if npm run generate-readme --silent; then
-            echo "Generation succeeded"
+          # Run generator; allow non-zero exit but continue so workflow can still succeed when no changes.
+          if SKIP_PUSH=true npm run generate-readme --silent; then
+            echo "Generation step finished"
           else
-            echo "Generator exited with a non-zero status — continuing pipeline so run can still pass if there are no changes"
+            echo "Generator returned non-zero — continuing (no PR will be created if there is no diff)"
           fi
 
       - name: Configure git author
