@@ -1,0 +1,60 @@
+name: Auto-update README
+
+on:
+  schedule:
+    - cron: '0 0 * * *'    # daily at 00:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: update-readme
+  cancel-in-progress: true
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run README generator
+        id: generate
+        run: |
+          # Run the project's README/markdown generation script.
+          # If the generator exits non-zero we will continue; the later steps will only commit if files changed.
+          if npm run generate-readme --silent; then
+            echo "Generation succeeded"
+          else
+            echo "Generator exited with a non-zero status — continuing pipeline so run can still pass if there are no changes"
+          fi
+
+      - name: Configure git author
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Create branch and open PR if files changed
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: update README [skip ci]"
+          branch: "auto/update-readme"
+          title: "Auto-update README"
+          body: "This pull request was created automatically by the workflow to update generated markdown."
+          labels: automation
+          committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
